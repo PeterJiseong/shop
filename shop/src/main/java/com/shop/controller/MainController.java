@@ -31,7 +31,7 @@ public class MainController {
         model.addAttribute("items",items);
         model.addAttribute("itemSearchDTO", itemSearchDTO);
         model.addAttribute("maxPage", 5);
-        System.err.println("MainController.main3");
+
 
         return"index";
     }
