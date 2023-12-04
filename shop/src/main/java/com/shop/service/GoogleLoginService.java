@@ -46,7 +46,7 @@ public class GoogleLoginService extends DefaultOAuth2UserService {
             findUser = memberRepository.findByEmail(userEmail);
             System.out.println(findUser);
         }catch (NullPointerException e){
-            System.out.println("nullpointException google");
+            System.out.println("nullpointException 1");
             //비회원일시 member객체 생성
             findUser = new Member();
         }
