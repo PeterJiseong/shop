@@ -29,8 +29,6 @@ public class MemberController {
     }
     @GetMapping(value = "/login/suc")
     public String loginSuc(Model model){
-        System.err.println("controller.MemberController.loginsuc");
-        //model.addAttribute("sucMessage","로그인에 성공하셨습니다.");
         return "index";
     }
 
