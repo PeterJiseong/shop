@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<div th:fragment="header1">
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarToggler" aria-controls="navbarToggler"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+            <img src="https://lh3.googleusercontent.com/fife/APg5EObwou-iWk3M05ESdiv3oKcW64vo4XSsc0xW9xzUWKW6hNkxRyVbmJWqT4uWEj3IA0OHSp66m_Qx6TRpTW-9eZoyMsfctXbgTz0tzLzn8CuyNB8WmnMiPuNvWOk2jVAuMMQqPch0DxRd8OpInpYoHA48xc_dAPF7wcNUC8ZNgUof0mxpKc2dqgydKnkCkUbxZN6lzMq295SihW60QMSQsZqzc57BFDrBZkqyDARI8p5El64xB28SNSJ17iYdy1i1TIkvkAHAtXdMpILwaLaU216rVoTyy1KVqzWanY3UNA5fhP9U5hBarNw_VdkdEZY-b8MzgY3zgZ6_QoXXTLO1Mqm9Y_0ONrue6n0f1S5PrCny-jr7APNj-95a_eYzJ_VkGz4plIRppyvxyncdQzCCiKjCtNmtXIEuIsm8qfe29ZXuAv_7UbEMIDm8hE8ipclOfnO6iJe6QaAWMxYsqOIbSwFcWZjsew52zH79VvNhSG0siDt-sLrq0ixtWxgxJy3Slja8vtk1Rcr7LpRZlec668LYlNKCdHiJyfustiJitaW2PJSGoUJNPY7fN67ZEf8PAbcuncTa52wbOe-AYJku-P9sGfiCE_IrxOFJ4Geq2N-zPVYO-xVSvSwUKhFYX0u0CESoIfE4paRTpV49N4HNAURYaNC39XxDaZ6rqPLRqslw4I10o1DbKXQqEjf0iy26yesnMhR0gm3wUegIm3wAcZUE_oSTCZ2-XFc-RPIibf9Gg6MiYsbcuTCF0mIWfnYHYPfyq4rH0FXhwroAUTiNWmI_YXYuL84gIvQICD5Yw0O2p1q6MbzCb2NWdF8AXLzem9TKJWND0hPR1-cQImEyAOt_zGjELGcG0kCRMmMVw-QDh6Bs_-Yus5ygSRz0qXT10GAZNCDWZIRhp0XSawAxe_orb71kzuIY31uxW2hX_cFxrGx-gExcKiQx21JtZLV2EDWUhVWxe4MmwVsd-CYpwPlbBO5_msgPW6UcpEe8d_CpjoZqUuydVD707WtDHk8QQYmNtT_s7RXoCKIL67irjGotwbvpLxmf1fs6mZTHeeqw6xyc0c2UBKSRg5PYda2-lqqgc4VGTNDNBVBhYZY1tvUW8z9CrWCTzofzb5p3R__915snmJnPn6lxUXPtLn8j2uhTxRM5EvABOGd47tNIrkr3kHps8Kb0j2ohPrSmfJNAeXgGdM_QLnzv4Y1W2435fS9jEh37Xb5-dWEzAbjh8xd5bVxfOlC351jZENvruTWotxx3Jbv7gAkRstFwQ8Fcj9YUWhTO8kmmybWUmZo86urA9dEDba401HipdxxuG23LvGqoI_dJuE70yEXBqNlIQjgBVIxUzt-FXqQm-nfvo3l97qhTtHQlITHRkTsePFK6dp0nMis0E_VddGA2MkASja8db-CYuqoalo-QOnuK0k0kmo4l75xNTaQqzfGfFg---L1BgqikzhpUnQyyhLZFh1FcKG6MJJN5SVvkRDcQocOxfDtusuvuePpqYU9XyI4lSl8a6EihOYAuIenXu0_jva32iQ=w1920-h902">
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+                    <a class="nav-link" href="/admin/item/new">상품 등록</a>
+                </li>
+                <li class="nav-item" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+                    <a class="nav-link" href="/admin/items">상품 관리</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" href="/cart">장바구니</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" href="/orders">구매이력</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAnonymous()">
+                    <a class="nav-link" href="/members/login">로그인</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" href="/members/logout">로그아웃</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAnonymous()">
+                    <a class="nav-link" href="/extras">찾아오시는 길</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" th:action="@{/}" method="get">
+                <input name="searchQuery" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</div>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+  <style>
+    .error {
+        color: #bd2130;
+    }
+  </style>
+</th:block>
+<!-- 사용자 스크립트 추가 -->
+
+<div layout:fragment="content1">
+  <h1>찾아오시는 길</h1>
+  <div id="map" style="width:1000px;height:800px;"></div>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7495a83fe0daf5f08009d31e8891e3b4"></script>
+  <script>
+    var container = document.getElementById('map');
+    var options = {
+        center: new kakao.maps.LatLng(35.5420701, 129.3384),
+        level: 3
+    };
+
+    var map = new kakao.maps.Map(container, options);
+  </script>
+
+</div>
+
+</html>

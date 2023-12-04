@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>상품 리스트 뽑기</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <td>순번</td>
+        <td>상품명</td>
+        <td>상품설명</td>
+        <td>가격</td>
+        <td>등록일</td>
+    </tr>
+    <tr th:each = "itemDTO, status:${itemDTOList}">
+        <td th:switch="${status.index}" >
+            <span th:case=0>first</span>
+            <span th:case=1>second</span>
+            <span th:case=2>third</span>
+            <span th:case=3>forth</span>
+            <span th:case=4>fifth</span>
+            <span th:case=5>sixth</span>
+            <span th:case=6>seventh</span>
+            <span th:case=7>eighth</span>
+            <span th:case=*>other</span>
+
+        </td>
+<!--        <td th:unless="${status.even}" th:text="홀수"></td>-->
+        <td th:text="${itemDTO.itemName}"></td>
+        <td th:text="${itemDTO.itemDetail}"></td>
+        <td th:text="${itemDTO.price}"></td>
+        <td th:text="${itemDTO.regTime}"></td>
+    </tr>
+
+    </thead>
+</table>
+</body>
+</html>
