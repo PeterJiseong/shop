@@ -38,7 +38,7 @@ public class MemberService implements UserDetailsService {
             model.addAttribute("message","존재하는 이메일 입니다.");
             throw new IllegalStateException("존재하는 이메일 입니다.");
         }
-        System.out.println("회원가입이 가능합니다");
+        System.out.println("validateduplicateMember- findmember" + findMember);
     }
     private void validateDuplicateMember(Member member){
         System.err.println("Service.MemberService.validateDuplicateMember_2");
